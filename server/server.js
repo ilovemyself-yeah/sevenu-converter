@@ -100,10 +100,14 @@ if (process.env.NODE_ENV === 'production') {
 // Keep process alive hack
 setInterval(() => { }, 1000);
 
-const server = app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+try {
+    const server = app.listen(PORT, '0.0.0.0', () => {
+        console.log(`Server running on port ${PORT}`);
+    });
 
-server.on('error', (err) => {
-    console.error('Server error:', err);
-});
+    server.on('error', (err) => {
+        console.error('Server error:', err);
+    });
+} catch (err) {
+    console.error('Failed to start server:', err);
+}
