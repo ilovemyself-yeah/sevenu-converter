@@ -61,7 +61,7 @@ function App() {
         });
       }, 500);
 
-      const response = await axios.post('http://localhost:5001/api/convert', formData, {
+      const response = await axios.post('/api/convert', formData, {
         responseType: 'blob',
         onUploadProgress: (progressEvent) => {
           // We could track upload progress here
