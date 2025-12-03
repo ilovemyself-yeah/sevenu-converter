@@ -91,8 +91,8 @@ app.post('/api/convert', upload.single('file'), async (req, res) => {
 // Keep process alive hack
 setInterval(() => { }, 1000);
 
-const server = app.listen(5001, () => {
-    console.log(`Server running on port 5001`);
+const server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
 
 server.on('error', (err) => {
